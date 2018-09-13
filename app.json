@@ -11,6 +11,8 @@
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
+    "color": "#999",
+    "selectedColor": "#000000",
     "list": [{
       "pagePath": "pages/classic/classic",
       "text": "流行",
