@@ -1,2 +1,7 @@
 <!--pages/classic/classic.wxml-->
 
+<view class="container">
+	<view class="demo color1">1</view>
+	<view class="demo color2">2</view>
+	<view class="demo color3">3</view>
+</view>
