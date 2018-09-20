@@ -1,33 +1,37 @@
 {
-  "pages":[
+  "pages": [
     "pages/classic/classic",
     "pages/book/book",
     "pages/my/my"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "旧岛小憩",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#999",
     "selectedColor": "#000000",
-    "list": [{
-      "pagePath": "pages/classic/classic",
-      "text": "流行",
-      "iconPath": "./pages/images/tab/classic.png",
-      "selectedIconPath": "./pages/images/tab/classic@highlight.png"
-    },{
-      "pagePath": "pages/book/book",
-      "text": "书单",
-      "iconPath": "./pages/images/tab/book.png",
-      "selectedIconPath": "./pages/images/tab/book@highlight.png"
-    },{
-      "pagePath": "pages/my/my",
-      "text": "喜欢",
-      "iconPath": "./pages/images/tab/my.png",
-      "selectedIconPath": "./pages/images/tab/my@highlight.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/classic/classic",
+        "text": "流行",
+        "iconPath": "./pages/images/tab/classic.png",
+        "selectedIconPath": "./pages/images/tab/classic@highlight.png"
+      },
+      {
+        "pagePath": "pages/book/book",
+        "text": "书单",
+        "iconPath": "./pages/images/tab/book.png",
+        "selectedIconPath": "./pages/images/tab/book@highlight.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "喜欢",
+        "iconPath": "./pages/images/tab/my.png",
+        "selectedIconPath": "./pages/images/tab/my@highlight.png"
+      }
+    ]
   }
 }
