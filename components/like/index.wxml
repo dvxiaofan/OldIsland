@@ -1,0 +1,6 @@
+<!--components/li'ke/index.wxml-->
+
+<view class="container">
+	<image src="./images/like.png"/>
+	<text>9</text>
+</view>
