@@ -1,6 +1,6 @@
 <!--components/li'ke/index.wxml-->
 
-<view class="container">
+<view class="container" bind:tap="onLike">
 	<image src="./images/like.png"/>
 	<text>9</text>
 </view>

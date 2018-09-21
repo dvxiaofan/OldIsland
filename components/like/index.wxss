@@ -1,6 +1,10 @@
 /* components/li'ke/index.wxss */
 
-.container {}
+.container {
+	display: inline-flex;
+	flex-direction: row;
+	padding: 10px;
+}
 
 .container image {
 	width: 32rpx;
@@ -9,6 +13,10 @@
 
 .container text {
 	/* font-family: 'PingFangSC-Thin'; */
-	font-size: 48rpx;
+	font-size: 24rpx;
+	line-height: 24rpx;
 	color: #bbb;
+	position: relative;
+	bottom: 10rpx;
+	left: 6rpx;
 }
