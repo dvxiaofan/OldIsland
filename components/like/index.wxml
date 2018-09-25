@@ -1,6 +1,6 @@
 <!--components/li'ke/index.wxml-->
 
 <view class="container" bind:tap="onLike">
-	<image src="./images/like.png"/>
-	<text>9</text>
+	<image src="{{like?yesSrc:notSrc}}"/>
+	<text>{{count}}</text>
 </view>
