@@ -1,11 +1,17 @@
 // pages/classic/classic.js
+
+import { HTTP } from '../../utils/http.js';
+
+
+let http = new HTTP();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    test: '222',
   },
 
   /**
@@ -13,6 +19,25 @@ Page({
    */
   onLoad: function (options) {
 
+    http.request({
+      url: 'classic/latest',
+      success: (res) => {
+        console.log(res);
+        
+      }
+    })
+
+    // wx.request({
+    //   url: 'http://bl.7yue.pro/v1/classic/latest',
+    //   header: {
+    //     appkey: 'GgRhTjUNUYn1fHke',
+    //   },
+    //   method: 'GET', 
+    //   success: (res) => {
+    //     console.log(res);
+        
+    //   }
+    // })
   },
 
   /**
