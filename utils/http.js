@@ -16,9 +16,9 @@ class HTTP {
 			success: (res) =>{
 				let code = res.statusCode.toString();				
 				if (code.startsWith('2')) {
-					console.log('success');
+					params.success(res.data);
 				} else {
-					console.log('nononono')
+					console.log('nononono');
 				}
 			},
 			fail: (err) => {
