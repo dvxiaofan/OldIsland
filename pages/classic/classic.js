@@ -11,6 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    classicData: null,
     test: '222',
   },
 
@@ -19,8 +20,9 @@ Page({
    */
   onLoad: function (options) {
     classic.getLatest(res => {
-      console.log(res);
-      
+      this.setData({
+        classicData: res
+      })
     })
   },
 
