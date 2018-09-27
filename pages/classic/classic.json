@@ -1,6 +1,7 @@
 {
 	"usingComponents": {
 		"x-like": "../../components/like/index",
-		"x-movie": "../../components/classic/movie/index"
+		"x-movie": "../../components/classic/movie/index",
+		"x-navig": "../../components/navig/index"
 	}
 }

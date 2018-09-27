@@ -3,3 +3,5 @@
 <x-like like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" />
 
 <x-movie img="{{classicData.image}}" content="{{classicData.content}}" />
+
+<!-- <x-navig content="{{classicData.title}}"></x-navig> -->

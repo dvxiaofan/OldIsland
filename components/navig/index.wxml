@@ -1,0 +1,7 @@
+<!--components/navig/index.wxml-->
+
+<view class="container">
+	<image class="navig-img" src="./images/triangle.dis@left.png" />
+	<text class="navig-title">{{content}}</text>
+	<image class="navig-img" src="./images/triangle@right.png" />
+</view>

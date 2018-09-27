@@ -1,0 +1,19 @@
+/* components/navig/index.wxss */
+
+.container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: #f7f7f7;
+	width: 590rpx;
+	height: 80rpx;
+}
+
+.navig-img {
+	width: 80rpx;
+	height: 80rpx;
+}
+
+.navig-title {
+	justify-content: stretch;
+}
