@@ -12,4 +12,4 @@ class ClassicModel extends HTTP {
 }
 
 
-export { ClassicModel }
+export { ClassicModel };

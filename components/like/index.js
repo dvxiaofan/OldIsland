@@ -25,6 +25,7 @@ Component({
    */
   methods: {
     onLike: function(e) {
+      // 自定义事件
       let like = this.properties.like;
       let count = this.properties.count;
 
@@ -34,6 +35,12 @@ Component({
         count: count,
         like: !like
       })
+
+      // 激活自定义事件
+      let behavior = this.properties.like ? 'like' : 'cancel';
+      this.triggerEvent('like', {
+        behavior: behavior
+      }, {});
     }
   }
 })
