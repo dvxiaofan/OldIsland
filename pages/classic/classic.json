@@ -2,6 +2,7 @@
 	"usingComponents": {
 		"x-like": "../../components/like/index",
 		"x-movie": "../../components/classic/movie/index",
-		"x-navig": "../../components/navig/index"
+		"x-navig": "../../components/navig/index",
+		"x-epsoide": "../../components/epsoide/index"
 	}
 }
