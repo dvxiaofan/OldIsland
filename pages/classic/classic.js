@@ -14,7 +14,8 @@ Page({
    */
   data: {
     classicData: null,
-    test: '222',
+    latest: true,
+    first: false
   },
 
   /**
@@ -31,6 +32,15 @@ Page({
   onLike: function (e) {
     let behavior = e.detail.behavior;
     likeModel.like(behavior, this.data.classicData.id, this.data.classicData.type);
+  },
+
+  onNext: function (e) {
+    console.log(e);
+    
+  },
+
+  onPrev: function (e) {
+    console.log(e);
   },
 
   /**

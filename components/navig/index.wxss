@@ -1,19 +1,21 @@
 /* components/navig/index.wxss */
 
 .container {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	background-color: #f7f7f7;
 	width: 590rpx;
 	height: 80rpx;
+	border-radius: 2rpx;
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #f7f7f7;
 }
 
-.navig-img {
+.navig-icon {
 	width: 80rpx;
 	height: 80rpx;
 }
 
 .navig-title {
-	justify-content: stretch;
+	font-size: 28rpx;
 }

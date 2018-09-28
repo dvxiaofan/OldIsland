@@ -1,11 +1,12 @@
 <!--pages/classic/classic.wxml-->
 
-<view class="header">
-	<x-episode class="episode" index="{{classicData.index}}" />
+<view class="container">
+	<view class="header">
+		<x-episode class="episode" index="{{classicData.index}}" />
+		<x-like class="like" bind:like="onLike" like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" />
+	</view>
 
-	<x-like class="like" bind:like="onLike" like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" />
+	<x-movie img="{{classicData.image}}" content="{{classicData.content}}" />
+
+	<x-navig bind:left="onNext" bind:right="onPrev" class="navig" title="{{classicData.title}}" first="{{first}}" latest="{{latest}}" />
 </view>
-
-<x-movie img="{{classicData.image}}" content="{{classicData.content}}" />
-
-<!-- <x-navig content="{{classicData.title}}"></x-navig> -->

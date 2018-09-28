@@ -1,7 +1,7 @@
 <!--components/navig/index.wxml-->
 
 <view class="container">
-	<image class="navig-img" src="./images/triangle.dis@left.png" />
-	<text class="navig-title">{{content}}</text>
-	<image class="navig-img" src="./images/triangle@right.png" />
+	<image bind:tap="onLeft" class="navig-icon" src="{{latest ? disLeftSrc : leftSrc}}" />
+	<text class="navig-title">{{title}}</text>
+	<image bind:tap="onRight" class="navig-icon" src="{{first ? disRightSrc : rightSrc}}" />
 </view>
