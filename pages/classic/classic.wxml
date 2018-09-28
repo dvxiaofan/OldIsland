@@ -1,8 +1,10 @@
 <!--pages/classic/classic.wxml-->
 
-<x-epsoide index="{{classicData.index}}" />
+<view class="header">
+	<x-episode class="episode" index="{{classicData.index}}" />
 
-<x-like bind:like="onLike" like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" />
+	<x-like class="like" bind:like="onLike" like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" />
+</view>
 
 <x-movie img="{{classicData.image}}" content="{{classicData.content}}" />
 

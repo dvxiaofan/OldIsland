@@ -1,0 +1,21 @@
+<!-- components/epsoide/index.wxml -->
+<wxs module="mm">
+	var getNum = function(index) {
+		var num = index < 10 ? '0'+index : index;
+		return num;
+	}
+	module.exports.getNum = getNum;
+</wxs>
+
+<view class="container">
+	<view class="index-container">
+		<text class="plain">No.</text>
+		<!-- <text class="index" >{{_index}}</text> -->
+		<text class="index">{{mm.getNum(index)}}</text>
+		<view class="line" />
+	</view>
+	<view class="date-container">
+		<text class="month">{{month}}</text>
+		<text class="year">{{year}}</text>
+	</view>
+</view>
