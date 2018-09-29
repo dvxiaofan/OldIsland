@@ -4,11 +4,20 @@ class ClassicModel extends HTTP {
 	getLatest(sClassicBack) {
 		this.request({
       url: 'classic/latest',
-      success: (res) => {
+      success: res => {
         sClassicBack(res);
       }
     })
-	}
+  }
+  
+  getPrevious(index, sClassicBack) {
+    this.request({
+      url: 'classic/' + index + '/previous',
+      success: res => {
+        sClassicBack(res);
+      }
+    })
+  }
 }
 
 

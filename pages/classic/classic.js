@@ -34,13 +34,20 @@ Page({
     likeModel.like(behavior, this.data.classicData.id, this.data.classicData.type);
   },
 
+  // 获取下一期新内容
   onNext: function (e) {
     console.log(e);
     
   },
 
+  // 获取上一期内容
   onPrev: function (e) {
-    console.log(e);
+    let index = this.data.classicData.index;
+    classicModel.getPrevious(index, res => {
+      this.setData({
+        classicData: res
+      })
+    })
   },
 
   /**
