@@ -3,6 +3,7 @@
 		"x-like": "../../components/like/index",
 		"x-movie": "../../components/classic/movie/index",
 		"x-navig": "../../components/navig/index",
-		"x-episode": "../../components/episode/index"
+		"x-episode": "../../components/episode/index",
+		"x-music": "../../components/classic/music/index"
 	}
 }
