@@ -36,16 +36,21 @@ Page({
 
   // 获取下一期新内容
   onNext: function (e) {
-    console.log(e);
-    
+    this._updateClassicData('next');  
   },
 
   // 获取上一期内容
   onPrev: function (e) {
+    this._updateClassicData('previous');
+  },
+
+  _updateClassicData: function(nextOrPrev) {
     let index = this.data.classicData.index;
-    classicModel.getPrevious(index, res => {
+    classicModel.getClassicData(index, nextOrPrev, res => {
       this.setData({
-        classicData: res
+        classicData: res,
+        latest: classicModel.isLatest(res.index),
+        first: classicModel.isFirst(res.index)
       })
     })
   },
