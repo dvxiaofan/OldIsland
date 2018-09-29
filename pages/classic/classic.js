@@ -15,7 +15,9 @@ Page({
   data: {
     classicData: null,
     latest: true,
-    first: false
+    first: false,
+    likeCount: 0,
+    likeStatus: false
   },
 
   /**
@@ -24,7 +26,9 @@ Page({
   onLoad: function (options) {
     classicModel.getLatest(res => {
       this.setData({
-        classicData: res
+        classicData: res,
+        likeCount: res.fav_nums,
+        likeStatus: res.like_status,
       })
     })
   },
@@ -47,6 +51,7 @@ Page({
   _updateClassicData: function(nextOrPrev) {
     let index = this.data.classicData.index;
     classicModel.getClassicData(index, nextOrPrev, res => {
+      this._getLikeStatus(res.id, res.type);
       this.setData({
         classicData: res,
         latest: classicModel.isLatest(res.index),
@@ -54,6 +59,17 @@ Page({
       })
     })
   },
+
+  _getLikeStatus: function (artID, category) {
+    likeModel.getLikeStatus(artID, category, res => {
+      this.setData({
+        likeCount: res.fav_nums,
+        likeStatus: res.like_status
+      })
+    })
+  },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

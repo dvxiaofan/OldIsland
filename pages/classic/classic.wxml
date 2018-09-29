@@ -3,7 +3,7 @@
 <view class="container">
 	<view class="header">
 		<x-episode class="episode" index="{{classicData.index}}" />
-		<x-like class="like" bind:like="onLike" like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" />
+		<x-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
 	</view>
 
 	<x-movie img="{{classicData.image}}" content="{{classicData.content}}" />
