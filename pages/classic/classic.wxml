@@ -6,7 +6,15 @@
 		<x-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
 	</view>
 
-	<x-movie img="{{classicData.image}}" content="{{classicData.content}}" />
+	<x-movie hidden="{{classicData.type != 100}}"
+		img="{{classicData.image}}" 
+		content="{{classicData.content}}" />
+	<x-music hidden="{{classicData.type != 200}}" 
+		img="{{classicData.image}}" 
+		content="{{classicData.content}}" />
+	<x-essay hidden="{{classicData.type != 300}}"
+		img="{{classicData.image}}"
+		content="{{classicData.content}}" />
 
 	<x-navig bind:left="onNext" bind:right="onPrev" class="navig" title="{{classicData.title}}" first="{{first}}" latest="{{latest}}" />
 </view>

@@ -4,6 +4,7 @@
 		"x-movie": "../../components/classic/movie/index",
 		"x-navig": "../../components/navig/index",
 		"x-episode": "../../components/episode/index",
-		"x-music": "../../components/classic/music/index"
+		"x-music": "../../components/classic/music/index",
+		"x-essay": "../../components/classic/essay/index"
 	}
 }

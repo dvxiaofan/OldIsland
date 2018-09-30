@@ -1,6 +1,6 @@
 <!--components/classic/music/index.wxml-->
 
-<view class="container">
+<view hidden="{{hidden}}" class="container">
 	<image src="{{img}}" />
 	<image src="{{playSrc}}" />
 	<image src="./images/music@tag.png" />
