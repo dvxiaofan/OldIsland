@@ -9,8 +9,13 @@
 	<x-movie hidden="{{classicData.type != 100}}"
 		img="{{classicData.image}}" 
 		content="{{classicData.content}}" />
-	<x-music hidden="{{classicData.type != 200}}" 
-		img="{{classicData.image}}" 
+	<!-- <x-music hidden="{{classicData.type != 200}}" 
+		img="{{classicData.image}}"
+		src="{{classicData.url}}" 
+		content="{{classicData.content}}" /> -->
+	<x-music wx:if="{{classicData.type == 200}}" 
+		img="{{classicData.image}}"
+		src="{{classicData.url}}" 
 		content="{{classicData.content}}" />
 	<x-essay hidden="{{classicData.type != 300}}"
 		img="{{classicData.image}}"
