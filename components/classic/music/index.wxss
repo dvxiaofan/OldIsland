@@ -30,6 +30,7 @@
 
 .rotation {
 	-webkit-transform: rotate(360deg);
+	transform: rotate(360deg);
 	animation: rotation 12s linear infinite;
 	-moz-animation: rotation 12s linear infinite;
 	-webkit-animation: rotation 12s linear infinite;
@@ -37,6 +38,14 @@
 }
 
 @-webkit-keyframes rotation {
+	from {
+		-webkit-transform: rotate(0deg);
+	} to {
+		-webkit-transform: rotate(130deg);
+	}
+}
+
+@keyframes rotation {
 	from {
 		-webkit-transform: rotate(0deg);
 	} to {
