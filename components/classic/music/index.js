@@ -1,5 +1,7 @@
 // components/classic/music/index.js
-import { classicBeh } from '../classic-beh.js';
+import {
+  classicBeh
+} from '../classic-beh.js';
 
 
 const mManager = wx.getBackgroundAudioManager();
@@ -20,7 +22,7 @@ Component({
   data: {
     playing: false,
     pauseSrc: './images/player@pause.png',
-    playSrc: './images/player@play.png'
+    playSrc: './images/player@play.png',
   },
   // 组件实例进入页面节点树时执行
   attached: function () {

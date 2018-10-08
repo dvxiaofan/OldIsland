@@ -13,6 +13,7 @@
   "tabBar": {
     "color": "#999",
     "selectedColor": "#000000",
+    "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/classic/classic",

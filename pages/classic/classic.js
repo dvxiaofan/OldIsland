@@ -1,11 +1,14 @@
 // pages/classic/classic.js
 
-import { ClassicModel } from '../../models/classic.js';
-import { LikeModel } from '../../models/like.js';
+import {
+  ClassicModel
+} from '../../models/classic.js';
+import {
+  LikeModel
+} from '../../models/like.js';
 
-
-let classicModel = new ClassicModel();
-let likeModel = new LikeModel();
+const classicModel = new ClassicModel();
+const likeModel = new LikeModel();
 
 Page({
 
@@ -17,7 +20,7 @@ Page({
     latest: true,
     first: false,
     likeCount: 0,
-    likeStatus: false
+    likeStatus: false,
   },
 
   /**
@@ -34,7 +37,7 @@ Page({
   },
 
   onLike: function (e) {
-    let behavior = e.detail.behavior;
+    const behavior = e.detail.behavior;
     likeModel.like(behavior, this.data.classicData.id, this.data.classicData.type);
   },
 
@@ -49,7 +52,7 @@ Page({
   },
 
   _updateClassicData: function(nextOrPrev) {
-    let index = this.data.classicData.index;
+    const index = this.data.classicData.index;
     classicModel.getClassicData(index, nextOrPrev, res => {
       this._getLikeStatus(res.id, res.type);
       this.setData({

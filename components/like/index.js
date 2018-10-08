@@ -9,7 +9,7 @@ Component({
     },
     count: {
       type: Number
-    }
+    },
   },
 
   /**
@@ -32,14 +32,14 @@ Component({
       count = like ? count - 1 : count + 1;
       
       this.setData({
-        count: count,
-        like: !like
+        count,
+        like: !like,
       })
 
       // 激活自定义事件
       let behavior = this.properties.like ? 'like' : 'cancel';
       this.triggerEvent('like', {
-        behavior: behavior
+        behavior
       }, {});
     }
   }

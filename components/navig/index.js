@@ -6,7 +6,7 @@ Component({
   properties: {
     title: String,
     first: Boolean,
-    latest: Boolean
+    latest: Boolean,
   },
 
   /**
@@ -16,7 +16,7 @@ Component({
     disLeftSrc: '../../components/navig/images/triangle.dis@left.png',
     leftSrc: '../../components/navig/images/triangle@left.png',
     disRightSrc: '../../components/navig/images/triangle.dis@right.png',
-    rightSrc: '../../components/navig/images/triangle@right.png'
+    rightSrc: '../../components/navig/images/triangle@right.png',
   },
 
   /**
