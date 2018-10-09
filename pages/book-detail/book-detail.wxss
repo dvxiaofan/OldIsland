@@ -1,0 +1,67 @@
+/* pages/book-detail/book-detail.wxss */
+
+.container {
+	width: 100%;
+	background-color: #f5f5f5;
+}
+
+.head {
+	background-color: #fff;
+	padding-top: 40rpx;
+	padding-bottom: 40rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.title {
+	font-size: 38rpx;
+	color: #2f2f2f;
+	font-weight: 600;
+	margin-top: 20rpx;
+}
+
+.author {
+	font-size: 28rpx;
+	color: #999;
+}
+
+.head image {
+	width: 200rpx;
+	height: 300rpx;
+	box-shadow: 2px 2px 3px #e3e3e3;
+}
+
+.sub-container {
+	width: 690rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 30rpx;
+	margin-top: 30rpx;
+	background-color: #fff;
+}
+
+.headline {
+	font-size: 30rpx;
+	color: #2f2f2f;
+	font-weight: 600;
+	margin-bottom: 20rpx;
+}
+
+.com-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.com-container x-tag {
+	margin-right: 15rpx;
+	margin-bottom: 10rpx;
+}
+
+.num {
+	font-size: 22rpx;
+	margin-left: 10rpx;
+	color: #aaa;
+}

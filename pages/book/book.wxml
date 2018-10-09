@@ -11,7 +11,7 @@
 	<view class="sub-container">
 		<image class="head-img" src="../../images/book/quality.png" />
 		<view class="books-container">
-			<block wx:for="{{books}}" wx:key="{{item.id}}">
+			<block wx:for="{{books}}" wx:key="id">
 				<x-book book="{{item}}" />
 			</block>
 		</view>
