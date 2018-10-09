@@ -16,12 +16,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const hotList = bookModel.getHotList();
-
-    hotList.then(
-      res => console.log(res),
-      error => console.log(error),
-    )
+    bookModel.getHotList()
+      .then(res => {
+          console.log(res);
+          return bookModel.getMyBookCount();
+      })
+      .then(res => {
+        console.log(res);
+        return bookModel.getMyBookCount();
+      })
+      .then(res => {
+        console.log(res);
+      })
+        
   },
 
   /**
