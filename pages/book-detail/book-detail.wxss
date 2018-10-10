@@ -81,3 +81,8 @@
 .exter-tag2 {
 	background-color: #eefbff !important;
 }
+
+.content {
+	text-indent: 56rpx;
+	font-weight: 500;
+}

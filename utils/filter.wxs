@@ -1,0 +1,25 @@
+
+// 处理短评抢两个背景色
+var tagClass = function (index) {
+	var className = index == 0 ? 'exter-tag1' : '' || index == 1 ? 'exter-tag2' : '';
+	return className;
+};
+
+// 处理显示短评的显示条数
+var limit = function (array, length) {
+	return array.slice(0, length);
+};
+
+// 处理段落的 \n  字符转义
+var format = function (text) {
+	if(!text)	return;
+	var reg = getRegExp('\\\\n', 'g');
+	return text.replace(reg, '\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+};
+
+
+module.exports= {
+	tagClass: tagClass,
+	limit: limit,
+	format: format,
+};
