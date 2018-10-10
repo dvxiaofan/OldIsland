@@ -10,7 +10,7 @@
 		<text class="headline">短评</text>
 		<view class="com-container">
 			<block class="comments" wx:for="{{comments}}" wx:key="content">
-				<x-tag text="{{item.content}}">
+				<x-tag tag-class="{{index==0?'exter-tag1':'' || index==1?'exter-tag2':''}}" text="{{item.content}}">
 					<text class="num" slot="after">{{'+'+item.nums}}</text>
 				</x-tag>
 			</block>

@@ -65,3 +65,19 @@
 	margin-left: 10rpx;
 	color: #aaa;
 }
+
+/* .com-container > x-tag:nth-child(1) > view {
+	background-color: #fffbdd;
+}
+
+.com-container > x-tag:nth-child(2) > view {
+	background-color: #eefbff;
+} */
+
+.exter-tag1 {
+	background-color: #fffbdd !important;
+}
+
+.exter-tag2 {
+	background-color: #eefbff !important;
+}
