@@ -1,5 +1,13 @@
 <!--pages/book-detail/book-detail.wxml-->
 
+<wxs module="tag">
+	var tagClass = function(index) {
+		var className = index == 0 ? 'exter-tag1': '' || index==1?'exter-tag2':'';
+		return className;
+	}
+	module.exports.tagClass = tagClass;
+</wxs>
+
 <view class="container">
 	<view class="head">
 		<image src="{{book.image}}" />
@@ -10,7 +18,7 @@
 		<text class="headline">短评</text>
 		<view class="com-container">
 			<block class="comments" wx:for="{{comments}}" wx:key="content">
-				<x-tag tag-class="{{index==0?'exter-tag1':'' || index==1?'exter-tag2':''}}" text="{{item.content}}">
+				<x-tag tag-class="{{tag.tagClass(index)}}" text="{{item.content}}">
 					<text class="num" slot="after">{{'+'+item.nums}}</text>
 				</x-tag>
 			</block>
