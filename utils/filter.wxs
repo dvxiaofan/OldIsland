@@ -1,8 +1,13 @@
 
 // 处理短评抢两个背景色
 var tagClass = function (index) {
-	var className = index == 0 ? 'exter-tag1' : '' || index == 1 ? 'exter-tag2' : '';
-	return className;
+	if (index == 0) {
+		return 'exter-tag1';
+	} 
+	if (index == 1) {
+		return 'exter-tag2';
+	}
+	return '';
 };
 
 // 处理显示短评的显示条数

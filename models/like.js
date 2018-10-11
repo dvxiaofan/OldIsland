@@ -1,4 +1,6 @@
-import { HTTP } from '../utils/http.js';
+import {
+	HTTP
+} from '../utils/http.js';
 
 class LikeModel extends HTTP {
 	like(behavior, artID, category) {

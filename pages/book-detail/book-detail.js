@@ -2,8 +2,12 @@
 import {
   BookModel
 } from '../../models/book.js';
+import {
+  LikeModel
+} from '../../models/like.js';
 
 const bookModel = new BookModel();
+const likeModel = new LikeModel();
 
 Page({
 
@@ -14,7 +18,8 @@ Page({
     book: null,
     comments: [],
     likeStatus: false,
-    likeCount: 0
+    likeCount: 0,
+    posting: false,   // 是否打开短评输入框
   },
 
   /**
@@ -33,8 +38,23 @@ Page({
       likeStatus: res.like_status,
       likeCount: res.fav_nums
     }));
+  },
 
+  onFakePost(e) {
+    this.setData({
+      posting: true
+    });
+  },
 
+  onLike(e) {
+    const behavior = e.detail.behavior;
+    likeModel.like(behavior, this.data.book.id, 400);
+  },
+
+  onCancel(e) {
+    this.setData({
+      posting: false
+    })
   },
 
   /**
