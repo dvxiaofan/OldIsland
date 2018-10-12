@@ -57,6 +57,36 @@ Page({
     })
   },
 
+  onPost(event) {
+    const comment = event.detail.text;
+
+    if (comment.length > 12) {
+      wx.wx.showToast({
+        title: '短评内容最多12个字！',
+        icon: 'none'
+      })
+      return;
+    }
+
+    bookModel.postComment(this.data.book.id, comment).then(res => {
+      wx.showToast({
+        title: '+1',
+        icon: 'none'
+      })
+
+      this.data.comments.unshift({
+        comment,
+        nums: 1
+      })
+
+      this.setData({
+        comments: this.data.comments
+      })
+      console.log(res)
+    })
+
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
