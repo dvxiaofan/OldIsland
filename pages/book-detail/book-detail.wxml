@@ -68,3 +68,5 @@
 	</view>
 	<input class="post" placeholder="短评最多12个字" />
 </view>
+
+<x-mask wx:if="{{posting}}" />
