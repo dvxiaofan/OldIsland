@@ -49,6 +49,10 @@
 	margin-bottom: 20rpx;
 }
 
+.shadow {
+	color: #999;
+}
+
 .com-container {
 	display: flex;
 	flex-direction: row;

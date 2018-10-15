@@ -58,7 +58,9 @@ Page({
   },
 
   onPost(event) {
-    const comment = event.detail.text;
+    const comment = event.detail.text || event.detail.value;
+
+    if (!comment) return;
 
     if (comment.length > 12) {
       wx.wx.showToast({
