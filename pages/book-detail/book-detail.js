@@ -75,14 +75,14 @@ Page({
       })
 
       this.data.comments.unshift({
-        comment,
+        content: comment,
         nums: 1
       })
 
       this.setData({
-        comments: this.data.comments
+        comments: this.data.comments,
+        posting: false
       })
-      console.log(res)
     })
 
   },
