@@ -3,7 +3,7 @@ import {
 	HTTP
 } from '../utils/http-p.js';
 
-class KeywordModel {
+class KeywordModel extends HTTP {
 	key = 'q';
 	maxLength = 10;
 
@@ -15,7 +15,11 @@ class KeywordModel {
 	}
 
 	// 获取热门搜索
-	getHot() {}
+	getHot() {
+		return this.request({
+			url: 'book/hot_keyword'
+		})
+	}
 
 	// 添加到历史搜索
 	addToHistory(keyword) {
