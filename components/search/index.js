@@ -2,8 +2,10 @@
 import {
   KeywordModel
 } from '../../models/keyword.js';
+import { BookModel } from '../../models/book.js';
 
 const keywordModel = new KeywordModel();
+const bookModel = new BookModel();
 
 Component({
   /**
@@ -19,6 +21,9 @@ Component({
   data: {
     historyWords: [],
     hotWords: [],
+    dataArray: [],
+    searching: false,
+    words: '',
   },
 
   attached() {
@@ -42,16 +47,27 @@ Component({
     },
 
     onConfirm(e) {
-      const words = e.detail.value;
-      keywordModel.addToHistory(words);
+      const words = e.detail.value || e.detail.text;
+      this.setData({
+        searching: true,
+        words
+      });
+      
+      bookModel.search(0, words).then(res => {
+        this.setData({
+          dataArray: res.books
+        })
+        keywordModel.addToHistory(words);
+      })
     },
 
+    // 清除按钮
     onDelete(e) {
-      console.log('delete')
-    },
-
-    onTap(e) {
-      console.log(e.detail.text)
+      this.setData({
+        searching: false,
+        dataArray: [],
+        words: ''
+      });
     },
   }
 })
