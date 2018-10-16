@@ -26,18 +26,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    wx.showLoading();
+
     const bid = options.bid;
 
-    bookModel.getDetail(bid).then(res => this.setData({
-      book: res
-    }));
-    bookModel.getComments(bid).then(res => this.setData({
-      comments: res.comments
-    }));
-    bookModel.getLikeStatus(bid).then(res => this.setData({
-      likeStatus: res.like_status,
-      likeCount: res.fav_nums
-    }));
+    Promise.all([
+      bookModel.getDetail(bid),
+      bookModel.getComments(bid),
+      bookModel.getLikeStatus(bid)
+    ])
+    .then(res => {
+      this.setData({
+        book: res[0],
+        comments: res[1].comments,
+        likeStatus: res[2].like_status,
+        likeCount: res[2].fav_nums,
+      })
+      wx.hideLoading();
+    })
   },
 
   onFakePost(e) {
