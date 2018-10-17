@@ -24,7 +24,7 @@ Component({
   properties: {
     more: {
       type: String,
-      observer: '_load_more',
+      observer: 'loadMore',
     }
   },
 
@@ -61,10 +61,7 @@ Component({
 
     onConfirm(e) {
       const words = e.detail.value || e.detail.text;      
-      this.setData({
-        searching: true,
-        words,
-      });
+      this._showResult(words);
 
       // 先清除上次数据
       this.initialize();
@@ -75,29 +72,53 @@ Component({
         keywordModel.addToHistory(words);
       })
     },
+
     // 清除按钮
     onDelete(e) {
-      this.setData({
-        searching: false,
-        words: ''
-      });
+      this._closeResult();
     },
 
-    _load_more(e) {
+    loadMore(e) {
       if (!this.data.words) return ;
-
-      if (this.data.loading) return;
-
+      if (this._isLocked()) return;
       
       if (this.hasMore()) {
         // 正在加载数据
-        this.data.loading = true;
+        this._locked();
         bookModel.search(this.getCurrentStart(), this.data.words).then(res => {
           this.setMoreData(res.books);
-          
-          this.data.loading = false;
+          this._unLocked();
+        }, () => {
+          // 请求失败的时候也要解锁
+          this._unLocked();
         })
       }
     },
+
+    _showResult(words) {
+      this.setData({
+        searching: true,
+        words,
+      });
+    },
+
+    _closeResult() {
+      this.setData({
+        searching: false,
+        words: '',
+      })
+    },
+
+    _isLocked() {
+      return this.data.loading ? true : false;
+    },
+
+    _locked() {
+      this.data.loading = true;
+    },
+
+    _unLocked() {
+      this.data.loading = false;
+    }
   }
 })
