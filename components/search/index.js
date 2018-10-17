@@ -27,6 +27,7 @@ Component({
     dataArray: [],
     searching: false,
     words: '',
+    loading: false,
   },
 
   attached() {
@@ -74,13 +75,19 @@ Component({
 
     _load_more(e) {
       if (!this.data.words) return ;
+
+      if (this.data.loading) return;
+
       const length = this.data.dataArray.length;
+
+      this.data.loading = true;
 
       bookModel.search(length, this.data.words).then(res => {
         const tempArray = this.data.dataArray.concat(res.books);
         this.setData({
           dataArray: tempArray
         })
+        this.data.loading = false;
       })
     },
   }
