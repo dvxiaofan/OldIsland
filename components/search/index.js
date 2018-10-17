@@ -12,7 +12,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    more: {
+      type: String,
+      observer: '_load_more',
+    }
   },
 
   /**
@@ -47,10 +50,10 @@ Component({
     },
 
     onConfirm(e) {
-      const words = e.detail.value || e.detail.text;
+      const words = e.detail.value || e.detail.text;      
       this.setData({
         searching: true,
-        words
+        words,
       });
       
       bookModel.search(0, words).then(res => {
@@ -60,7 +63,6 @@ Component({
         keywordModel.addToHistory(words);
       })
     },
-
     // 清除按钮
     onDelete(e) {
       this.setData({
@@ -68,6 +70,18 @@ Component({
         dataArray: [],
         words: ''
       });
+    },
+
+    _load_more(e) {
+      if (!this.data.words) return ;
+      const length = this.data.dataArray.length;
+
+      bookModel.search(length, this.data.words).then(res => {
+        const tempArray = this.data.dataArray.concat(res.books);
+        this.setData({
+          dataArray: tempArray
+        })
+      })
     },
   }
 })
