@@ -2,12 +2,22 @@
 import {
   KeywordModel
 } from '../../models/keyword.js';
-import { BookModel } from '../../models/book.js';
+
+import {
+  BookModel
+} from '../../models/book.js';
+
+import {
+  paginationBev
+} from '../../components/behaviors/pagination.js';
 
 const keywordModel = new KeywordModel();
 const bookModel = new BookModel();
 
 Component({
+  behaviors: [
+    paginationBev
+  ],
   /**
    * 组件的属性列表
    */
@@ -24,7 +34,6 @@ Component({
   data: {
     historyWords: [],
     hotWords: [],
-    dataArray: [],
     searching: false,
     words: '',
     loading: false,
@@ -56,11 +65,13 @@ Component({
         searching: true,
         words,
       });
+
+      // 先清除上次数据
+      this.initialize();
       
       bookModel.search(0, words).then(res => {
-        this.setData({
-          dataArray: res.books
-        })
+        this.setMoreData(res.books);
+        this.setTotal(res.total);
         keywordModel.addToHistory(words);
       })
     },
@@ -68,7 +79,6 @@ Component({
     onDelete(e) {
       this.setData({
         searching: false,
-        dataArray: [],
         words: ''
       });
     },
@@ -78,17 +88,16 @@ Component({
 
       if (this.data.loading) return;
 
-      const length = this.data.dataArray.length;
-
-      this.data.loading = true;
-
-      bookModel.search(length, this.data.words).then(res => {
-        const tempArray = this.data.dataArray.concat(res.books);
-        this.setData({
-          dataArray: tempArray
+      
+      if (this.hasMore()) {
+        // 正在加载数据
+        this.data.loading = true;
+        bookModel.search(this.getCurrentStart(), this.data.words).then(res => {
+          this.setMoreData(res.books);
+          
+          this.data.loading = false;
         })
-        this.data.loading = false;
-      })
+      }
     },
   }
 })
