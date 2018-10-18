@@ -2,7 +2,7 @@
   "component": true,
   "usingComponents": {
     "x-tag": "../../components/tag/index",
-    "x-book": "../../components/book/index"
-    
+    "x-book": "../../components/book/index",
+    "x-loading": "../../components/loading/index"
   }
 }

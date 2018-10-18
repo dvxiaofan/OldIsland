@@ -37,6 +37,7 @@ Component({
     searching: false,
     words: '',
     loading: false,
+    loadingCenter: false,
   },
 
   attached() {
@@ -60,6 +61,8 @@ Component({
     },
 
     onConfirm(e) {
+      this._showLoadingCenter();
+
       const words = e.detail.value || e.detail.text;      
       this._showResult(words);
 
@@ -70,6 +73,7 @@ Component({
         this.setMoreData(res.books);
         this.setTotal(res.total);
         keywordModel.addToHistory(words);
+        this._hideLoadingCenter();
       })
     },
 
@@ -102,6 +106,18 @@ Component({
       });
     },
 
+    _showLoadingCenter() {
+      this.setData({
+        loadingCenter: true
+      })
+    },
+
+    _hideLoadingCenter() {
+      this.setData({
+        loadingCenter: false
+      })
+    },
+
     _closeResult() {
       this.setData({
         searching: false,
@@ -114,11 +130,15 @@ Component({
     },
 
     _locked() {
-      this.data.loading = true;
+      this.setData({
+        loading: true
+      });
     },
 
     _unLocked() {
-      this.data.loading = false;
+      this.setData({
+        loading: false
+      });
     }
   }
 })

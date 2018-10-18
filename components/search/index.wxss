@@ -136,9 +136,15 @@
   width: 750rpx;
   align-items: center;
   z-index:99;
-  /* padding-left:15px;  *//* padding-right:5px; */
 }
 
 .test {
   background-color: #000;
 }
+
+.loadingCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+

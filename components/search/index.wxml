@@ -40,4 +40,7 @@
 		</block>
 	</view>
 
+	<x-loading class="loadingCenter" wx:if="{{loadingCenter}}" />
+	<x-loading class="loadingBottom" wx:if="{{loading}}"/>
+
 </view>
