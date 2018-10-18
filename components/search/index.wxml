@@ -43,4 +43,6 @@
 	<x-loading class="loadingCenter" wx:if="{{loadingCenter}}" />
 	<x-loading class="loadingBottom" wx:if="{{loading}}"/>
 
+	<text wx:if="{{noResult}}" class="empty-tip">未找到相关书籍</text>
+
 </view>

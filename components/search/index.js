@@ -36,7 +36,6 @@ Component({
     hotWords: [],
     searching: false,
     words: '',
-    loading: false,
     loadingCenter: false,
   },
 
@@ -56,18 +55,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onCancel(e) {
-      this.triggerEvent('onCancel', {}, {});
-    },
-
+    // 搜索数据
     onConfirm(e) {
       this._showLoadingCenter();
 
       const words = e.detail.value || e.detail.text;      
       this._showResult(words);
-
-      // 先清除上次数据
-      this.initialize();
       
       bookModel.search(0, words).then(res => {
         this.setMoreData(res.books);
@@ -77,24 +70,35 @@ Component({
       })
     },
 
+    // 取消按钮
+    onCancel(e) {
+      // 清除上次数据
+      this.initialize();
+      
+      this.triggerEvent('onCancel', {}, {});
+    },
+
     // 清除按钮
     onDelete(e) {
+      // 清除上次数据
+      this.initialize();
+
       this._closeResult();
     },
 
     loadMore(e) {
       if (!this.data.words) return ;
-      if (this._isLocked()) return;
+      if (this.isLocked()) return;
       
       if (this.hasMore()) {
         // 正在加载数据
-        this._locked();
+        this.locked();
         bookModel.search(this.getCurrentStart(), this.data.words).then(res => {
           this.setMoreData(res.books);
-          this._unLocked();
+          this.unLocked();
         }, () => {
           // 请求失败的时候也要解锁
-          this._unLocked();
+          this.unLocked();
         })
       }
     },
@@ -125,20 +129,5 @@ Component({
       })
     },
 
-    _isLocked() {
-      return this.data.loading ? true : false;
-    },
-
-    _locked() {
-      this.setData({
-        loading: true
-      });
-    },
-
-    _unLocked() {
-      this.setData({
-        loading: false
-      });
-    }
   }
 })
