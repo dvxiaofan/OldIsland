@@ -3,7 +3,12 @@
 <view class="container">
 	<view class="header">
 		<x-episode class="episode" index="{{classicData.index}}" />
-		<x-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
+		<view class="like-container">
+			<x-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
+			<x-button open-type="share" class="share-btn">
+				<image slot="img" src="../../images/icon/share.png" class="share" />
+			</x-button>
+		</view>
 	</view>
 
 	<x-movie hidden="{{classicData.type != 100}}"
