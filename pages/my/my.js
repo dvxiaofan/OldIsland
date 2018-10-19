@@ -1,4 +1,15 @@
 // pages/my/my.js
+import {
+  ClassicModel
+} from '../../models/classic.js';
+
+import {
+  BookModel
+} from '../../models/book.js';
+
+const classicModel = new ClassicModel();
+const bookModel = new BookModel();
+
 Page({
 
   /**
@@ -7,6 +18,7 @@ Page({
   data: {
     authorized: false,
     userInfo: null,
+    likeBookCount: 0,
   },
 
   /**
@@ -15,6 +27,16 @@ Page({
   onLoad: function (options) {
     this.userAvatared();
 
+    this.getLikeCount();
+  },
+
+  getLikeCount(e) {
+    bookModel.getLikeBookCount().then(res => {
+      this.setData({
+        likeBookCount: res.count
+      })
+      
+    })
   },
 
   userAvatared() {
@@ -45,4 +67,17 @@ Page({
       })
     }
   },
+
+  onJumpToAbout(e) {
+    wx.navigateTo({
+      url: '../about/about',
+    })
+  },
+
+  onStudy(e) {
+    wx.navigateTo({
+      url: '../course/course',
+    })
+  },
+
 })

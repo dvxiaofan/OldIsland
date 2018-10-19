@@ -52,7 +52,13 @@ class BookModel extends HTTP {
 				content: comment
 			}
 		})
-	}
+	};
+
+	getLikeBookCount() {
+		return this.request({
+			url: 'book/favor/count',
+		});
+	};
 
 
 

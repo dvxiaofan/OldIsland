@@ -1,0 +1,6 @@
+/* pages/about/about.wxss */
+
+.btn {
+	width: 50%;
+	margin-top: 100rpx;
+}
