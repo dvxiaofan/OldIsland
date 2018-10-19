@@ -144,9 +144,18 @@
 	justify-content: space-between;
 }
 
+.share {
+	width: 40rpx;
+	height: 40rpx;
+}
+
+.share-btn {
+	margin-top: 28rpx;
+	margin-left: 10rpx;
+}
+
 .like {
 	margin-top: 10rpx;
-	margin-right: 30rpx;
 }
 
 .posting-container {
